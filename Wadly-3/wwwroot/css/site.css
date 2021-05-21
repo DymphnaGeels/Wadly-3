@@ -91,3 +91,11 @@ footer {
     left: 170px;
     top: 170px;
 }
+
+.films {
+    display: flex;
+    flex-direction: row;
+}
+
+.film {
+}

@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using Wadly_3.Models;
-using MySql.Data;
 using System;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
@@ -14,12 +13,18 @@ namespace Festivalsite.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        // stel in waar de database gevonden kan worden
+        //string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110533;Uid=110533;Pwd=inf2021sql";
+        string connectionString = "Server=172.16.160.21;Port=3306;Database=110533;Uid=110533;Pwd=inf2021sql";
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
-        public IActionResult Index()
+        [Route("")]
+
+        public IActionResult Homepage()
         {
             // alle namen ophalen
             var products = GetNames();
@@ -35,9 +40,7 @@ namespace Festivalsite.Controllers
         }
 
         public List<Film> GetNames()
-        {
-            // stel in waar de database gevonden kan worden
-            string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110533;Uid=110533;Pwd=inf2021sql";
+        {           
 
             // maak een lege lijst waar we de namen in gaan opslaan
             List<Film> Film = new List<Film>();
@@ -61,25 +64,24 @@ namespace Festivalsite.Controllers
                         {
                             // selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
                             Id = Convert.ToInt32(reader["Id"]),
-                            Beschikbaarheid = Convert.ToInt32(reader["Beschikbaarheid"]),
+                           // Beschikbaarheid = Convert.ToInt32(reader["Beschikbaarheid"]),
                             Naam = reader["Naam"].ToString(),
-                            Prijs = reader["Prijs"].ToString(),
+                            Img = reader["img"].ToString(),
                         };
 
                         // voeg de naam toe aan de lijst met namen
-                        products.Add(p);
+                        Film.Add(p);
                     }
                 }
             }
 
             // return de lijst met namen
-            return products;
+            return Film;
         }
 
         public List<string> GetFilmsinfo()
-        {
-            // stel in waar de database gevonden kan worden
-            string connectionString = "Server=172.16.160.21;Port=3306;Database=fastfood;Uid=lgg;Pwd=0P%Y9fI2GdO#;";
+
+        {          
 
             // maak een lege lijst waar we de namen in gaan opslaan
             List<string> names = new List<string>();
@@ -117,8 +119,6 @@ namespace Festivalsite.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
- 
-
 
         [Route("films")]
         public IActionResult Films()
