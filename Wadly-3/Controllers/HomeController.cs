@@ -120,7 +120,7 @@ namespace Festivalsite.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        [Route("films")]
+        [Route("films/{id}")]
         public IActionResult Films()
         {
         return View();
