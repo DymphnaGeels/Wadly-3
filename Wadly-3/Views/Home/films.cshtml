@@ -1,6 +1,7 @@
-﻿@{
+﻿@model SchoolTemplate.Database.Film
+@{
     ViewData["Title"] = "Films";
 }
-<h1>@ViewData["id"]</h1>
+<h1>@Model.Naam</h1>
 
-<p>Film gegevens</p>
+<p>@Model.Beschrijving</p>
