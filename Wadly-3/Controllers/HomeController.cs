@@ -79,6 +79,30 @@ namespace Festivalsite.Controllers
             return Film;
         }
 
+        private Film GetFilm(string id)
+        {
+            List<Film> Film = new List<Film>();
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+            conn.Open();
+                MySqlCommand cmd = new MySqlCommand($"select * from film where id = {id}", conn);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Film p = new Film
+                        {
+                            Id = Convert.ToInt32(reader["Id"]),
+                            Naam = reader["Naam"].ToString(),
+                            Beschrijving = reader["Beschrijving"].ToString()
+                        };
+                        Film.Add(p);
+                    }
+                }
+            }
+            return Film[0];
+        }
+
         public List<string> GetFilmsinfo()
 
         {          
@@ -121,9 +145,11 @@ namespace Festivalsite.Controllers
         }
 
         [Route("films/{id}")]
-        public IActionResult Films()
+        public IActionResult Films(string id)
         {
-        return View();
+          var model = GetNames(id)
+            
+          return View(model);
         }
 
         [Route("genres")]
