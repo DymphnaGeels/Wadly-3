@@ -170,6 +170,12 @@ namespace Festivalsite.Controllers
             return View();
         }
 
+        [Route("Contact")]
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
         [Route("account")]
         public IActionResult account()
         {
