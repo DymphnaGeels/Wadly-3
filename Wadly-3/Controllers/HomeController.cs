@@ -171,8 +171,11 @@ namespace Festivalsite.Controllers
         }
 
         [Route("Contact")]
-        public IActionResult Contact()
+        public IActionResult Contact(string voornaam, string achternaam)
         {
+            ViewData["voornaam"] = voornaam;
+            ViewDate["achternaam"] = achternaam;
+            
             return View();
         }
 
