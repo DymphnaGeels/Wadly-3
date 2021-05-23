@@ -170,11 +170,16 @@ namespace Festivalsite.Controllers
             return View();
         }
 
-        [Route("Contact")]
-        public IActionResult Contact(string voornaam, string achternaam)
+        public IActionResult Contact()
         {
-            ViewData["voornaam"] = voornaam;
-            ViewDate["achternaam"] = achternaam;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Contact(string firstName, string lastName)
+        {
+            ViewData["firstName"] = firstName;
+            ViewData["lastName"] = lastName;
             
             return View();
         }
