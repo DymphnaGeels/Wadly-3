@@ -1,4 +1,5 @@
-﻿@{
+﻿@model SendAndStore.Models.Person 
+@{
     ViewData["Title"] = "Contact";
 }
 <h1>@ViewData["Title"]</h1>
@@ -6,6 +7,10 @@
 <form method="post">
     Voornaam: <input type="text" name="Firstname" />
     Achternaam: <input type="text" name="Lastname" />
+    E-mail: <input type="text" name="email" />
+    Telefoon: <input type="text" name="phone" />
+    Adres: <input type="text" name="address" />
+    Beschrijving: <input type="text" name="bescrhijving" />
     <input type="submit" value="opslaan" />
 </form>
 
