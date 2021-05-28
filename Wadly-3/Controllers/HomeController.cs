@@ -188,5 +188,10 @@ namespace Festivalsite.Controllers
             return View();
         }
 
+        [Route("AlleFilms")]
+        public IActionResult AlleFilms()
+        {
+            return View();
+        }
     }
 }
