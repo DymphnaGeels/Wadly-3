@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using Wadly_3.Database;
+using SendAndStore.Models;
 
 namespace Festivalsite.Controllers
 {
@@ -169,18 +170,16 @@ namespace Festivalsite.Controllers
             return View();
         }
 
+        [Route("Contact")]
         public IActionResult Contact()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Contact(string firstName, string lastName)
+        public IActionResult Contact(Person person)
         {
-            ViewData["firstName"] = firstName;
-            ViewData["lastName"] = lastName;
-            
-            return View();
+            return View(person);
         }
 
         [Route("account")]
