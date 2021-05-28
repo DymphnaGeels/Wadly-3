@@ -94,7 +94,6 @@ namespace Festivalsite.Controllers
                         {
                             Id = Convert.ToInt32(reader["Id"]),
                             Naam = reader["Naam"].ToString(),
-                            Beschrijving = reader["Beschrijving"].ToString()
                         };
                         Film.Add(p);
                     }
@@ -147,9 +146,9 @@ namespace Festivalsite.Controllers
         [Route("films/{id}")]
         public IActionResult Films(string id)
         {
-          var model = GetNames(id)
+            var model = GetNames();
             
-          return View(model);
+            return View(model);
         }
 
         [Route("genres")]
