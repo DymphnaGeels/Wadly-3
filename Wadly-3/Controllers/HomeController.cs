@@ -41,7 +41,7 @@ namespace Festivalsite.Controllers
         }
 
         public List<Film> GetNames()
-        {           
+        {
 
             // maak een lege lijst waar we de namen in gaan opslaan
             List<Film> Film = new List<Film>();
@@ -65,7 +65,7 @@ namespace Festivalsite.Controllers
                         {
                             // selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
                             Id = Convert.ToInt32(reader["Id"]),
-                           // Beschikbaarheid = Convert.ToInt32(reader["Beschikbaarheid"]),
+                            // Beschikbaarheid = Convert.ToInt32(reader["Beschikbaarheid"]),
                             Naam = reader["Naam"].ToString(),
                             Img = reader["img"].ToString(),
                         };
@@ -85,7 +85,7 @@ namespace Festivalsite.Controllers
             List<Film> Film = new List<Film>();
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-            conn.Open();
+                conn.Open();
                 MySqlCommand cmd = new MySqlCommand($"select * from film where id = {id}", conn);
                 using (var reader = cmd.ExecuteReader())
                 {
@@ -105,7 +105,7 @@ namespace Festivalsite.Controllers
 
         public List<string> GetFilmsinfo()
 
-        {          
+        {
 
             // maak een lege lijst waar we de namen in gaan opslaan
             List<string> names = new List<string>();
@@ -148,7 +148,7 @@ namespace Festivalsite.Controllers
         public IActionResult Films(string id)
         {
             var model = GetNames();
-            
+
             return View(model);
         }
 
@@ -185,6 +185,12 @@ namespace Festivalsite.Controllers
 
             // niet goed? Dan sturen we de gegevens door naar de view zodat we de fouten kunnen tonen
             return View(person);
+        }
+
+        [Route("succes")]
+        public IActionResult Succes()
+        {
+            return View();
         }
 
         [Route("account")]

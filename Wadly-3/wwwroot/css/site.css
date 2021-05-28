@@ -100,6 +100,11 @@ footer {
 .film {
 }
 
-.Contact{
-    border-color: white;
+.contactform label{
+    width: 100px;
+}
+
+.contactform .field-validation-error{
+    color: red;
+    margin-left: 10px;
 }
