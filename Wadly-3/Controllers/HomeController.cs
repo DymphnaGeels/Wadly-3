@@ -34,7 +34,7 @@ namespace Festivalsite.Controllers
             return View(products);
         }
 
-
+        [Route ("Privacy")]
         public IActionResult Privacy()
         {
             return View();
@@ -181,8 +181,10 @@ namespace Festivalsite.Controllers
         {
             // hebben we alles goed ingevuld? Dan sturen we de gebruiker door naar de succes pagina
             if (ModelState.IsValid)
+            {
+                // alle benodigde gegevens zijn aanwezig, we kunnen opslaan!
                 return Redirect("/succes");
-
+            }
             // niet goed? Dan sturen we de gegevens door naar de view zodat we de fouten kunnen tonen
             return View(person);
         }
