@@ -15,3 +15,8 @@
 </form>
 
 <p>Hallo @ViewBag["firstname"] @ViewBag["lastname"] welkom bij Wadly! Where you watch movies with fun!</p>
+
+@if (Model!= null)
+{
+    <p>Hallo @Model.FirstName @Model.LastName </p>
+}
