@@ -4,6 +4,7 @@ using System.Diagnostics;
 using Wadly_3.Models;
 using MySql.Data.MySqlClient;
 using Wadly_3.Database;
+using SendAndStore.Models;
 
 namespace SendAndStore.Controllers
 {
@@ -31,14 +32,14 @@ namespace SendAndStore.Controllers
             return View(products);
         }
 
-
+        [Route ("Privacy")]
         public IActionResult Privacy()
         {
             return View();
         }
 
         public List<Film> GetNames()
-        {           
+        {
 
             // maak een lege lijst waar we de namen in gaan opslaan
             List<Film> Film = new List<Film>();
@@ -62,7 +63,7 @@ namespace SendAndStore.Controllers
                         {
                             // selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
                             Id = Convert.ToInt32(reader["Id"]),
-                           // Beschikbaarheid = Convert.ToInt32(reader["Beschikbaarheid"]),
+                            // Beschikbaarheid = Convert.ToInt32(reader["Beschikbaarheid"]),
                             Naam = reader["Naam"].ToString(),
                             Img = reader["img"].ToString(),
                         };
@@ -82,7 +83,7 @@ namespace SendAndStore.Controllers
             List<Film> Film = new List<Film>();
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-            conn.Open();
+                conn.Open();
                 MySqlCommand cmd = new MySqlCommand($"select * from film where id = {id}", conn);
                 using (var reader = cmd.ExecuteReader())
                 {
@@ -92,7 +93,6 @@ namespace SendAndStore.Controllers
                         {
                             Id = Convert.ToInt32(reader["Id"]),
                             Naam = reader["Naam"].ToString(),
-                            Beschrijving = reader["Beschrijving"].ToString()
                         };
                         Film.Add(p);
                     }
@@ -103,7 +103,7 @@ namespace SendAndStore.Controllers
 
         public List<string> GetFilmsinfo()
 
-        {          
+        {
 
             // maak een lege lijst waar we de namen in gaan opslaan
             List<string> names = new List<string>();
@@ -145,9 +145,9 @@ namespace SendAndStore.Controllers
         [Route("films/{id}")]
         public IActionResult Films(string id)
         {
-          var model = GetNames(id)
-            
-          return View(model);
+            var model = GetNames();
+
+            return View(model);
         }
 
         [Route("genres")]
@@ -168,17 +168,28 @@ namespace SendAndStore.Controllers
             return View();
         }
 
+        [Route("Contact")]
         public IActionResult Contact()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Contact(string firstName, string lastName)
+        public IActionResult Contact(Person person)
         {
-            ViewData["firstName"] = firstName;
-            ViewData["lastName"] = lastName;
-            
+            // hebben we alles goed ingevuld? Dan sturen we de gebruiker door naar de succes pagina
+            if (ModelState.IsValid)
+            {
+                // alle benodigde gegevens zijn aanwezig, we kunnen opslaan!
+                return Redirect("/succes");
+            }
+            // niet goed? Dan sturen we de gegevens door naar de view zodat we de fouten kunnen tonen
+            return View(person);
+        }
+
+        [Route("succes")]
+        public IActionResult Succes()
+        {
             return View();
         }
 
@@ -188,5 +199,10 @@ namespace SendAndStore.Controllers
             return View();
         }
 
+        [Route("AlleFilms")]
+        public IActionResult AlleFilms()
+        {
+            return View();
+        }
     }
 }
