@@ -2,12 +2,10 @@
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using Wadly_3.Models;
-using System;
-using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using Wadly_3.Database;
 
-namespace Festivalsite.Controllers
+namespace SendAndStore.Controllers
 {
     public class HomeController : Controller
     {
