@@ -181,6 +181,8 @@ namespace SendAndStore.Controllers
             if (ModelState.IsValid)
             {
                 // alle benodigde gegevens zijn aanwezig, we kunnen opslaan!
+                SavePerson(person);
+                
                 return Redirect("/succes");
             }
             // niet goed? Dan sturen we de gegevens door naar de view zodat we de fouten kunnen tonen
@@ -191,6 +193,21 @@ namespace SendAndStore.Controllers
         public IActionResult Succes()
         {
             return View();
+        }
+
+        private void SavePerson(Person person)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO klant(voornaam, achternaam, email, bericht) VALUES(?voornaam, ?achternaam, ?email, ?bericht)", conn);
+
+                cmd.Parameters.Add("?voornaam", MySqlDbType.Text).Value = person.FirstName;
+                cmd.Parameters.Add("?achternaam", MySqlDbType.Text).Value = person.LastName;
+                cmd.Parameters.Add("?email", MySqlDbType.Text).Value = person.Email;
+                cmd.Parameters.Add("?bericht", MySqlDbType.Text).Value = person.Description;
+                cmd.ExecuteNonQuery();
+            }
         }
 
         [Route("account")]
