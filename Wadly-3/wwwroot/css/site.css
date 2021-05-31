@@ -95,6 +95,7 @@ footer {
 .films {
     display: flex;
     flex-direction: row;
+    left:50px;
 }
 
 .film {
