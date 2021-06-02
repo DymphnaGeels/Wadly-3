@@ -5,6 +5,8 @@ using Wadly_3.Models;
 using MySql.Data.MySqlClient;
 using Wadly_3.Database;
 using SendAndStore.Models;
+using System.Collections.Generic;
+using System;
 
 namespace SendAndStore.Controllers
 {
@@ -32,7 +34,7 @@ namespace SendAndStore.Controllers
             return View(products);
         }
 
-        [Route ("Privacy")]
+        [Route("Privacy")]
         public IActionResult Privacy()
         {
             return View();
@@ -216,10 +218,5 @@ namespace SendAndStore.Controllers
             return View();
         }
 
-        [Route("AlleFilms")]
-        public IActionResult AlleFilms()
-        {
-            return View();
-        }
     }
 }

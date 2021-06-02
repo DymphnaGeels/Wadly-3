@@ -2,6 +2,7 @@
     Margin: 0;
     background-size: cover;
     background-color: black;
+    text-align: center;
 }
 
 header {
@@ -68,37 +69,22 @@ footer {
 }
 
 
-.Mulan{
-    position: absolute;
-    width: 403px;
-    height: 550px;
-    left: 550px;
-    top: 120px;
-      }
- 
-.AVA{
-    position: absolute;
-    width: 312px;
-    height: 424px;
-    right: 170px;
-    top: 170px;
-}
-
-.Antebellum{
-    position: absolute;
-    width: 323px;
-    height: 424px;
-    left: 170px;
-    top: 170px;
-}
 
 .films {
     display: flex;
     flex-direction: row;
-    left:50px;
+    margin-top: 150px;
+    margin-left: 300px;
+    color: white;
+    font-size: 18px;
 }
 
 .film {
+    margin-left: 30px;
+}
+
+.films img{
+    width: 300px;
 }
 
 .contactform label{
@@ -108,4 +94,49 @@ footer {
 .contactform .field-validation-error{
     color: red;
     margin-left: 10px;
+}
+
+
+form {
+    margin-top: 50px;
+    transition: all 4s ease-in-out;
+}
+
+.contactform{
+    margin-top: 100px;
+
+}
+
+.form-group{
+    width: 600px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 16px;
+    margin-left: 500px;
+}
+
+input{
+    height: 45px;
+}
+
+form .submit{
+    background: #ff5722;
+    border-color: transparent;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    height: 50px;
+    margin-top: 20px;
+}
+
+.privacy{
+    color: white;
+    margin-top: 100px;
+}
+
+.nav-links{
+    margin-left: 300px;
 }
