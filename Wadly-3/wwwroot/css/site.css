@@ -206,7 +206,7 @@ form .submit{
     left: 0;
     z-index: 0;
     border-radius: 5px;
-    background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+    background: -webkit-linear-gradient(left, #FF0000, #FF0000, #B22222, #DC143C);
     transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
 }
 
@@ -317,7 +317,7 @@ form .btn {
         width: 300%;
         position: absolute;
         left: -100%;
-        background: -webkit-linear-gradient(right, #a445b2, #fa4299, #a445b2, #fa4299);
+        background: -webkit-linear-gradient(right, #FF0000, #FF0000, #B22222, #DC143C);
         border-radius: 5px;
         transition: all 0.4s ease;
         ;
