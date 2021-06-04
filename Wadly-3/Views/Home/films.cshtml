@@ -1,6 +1,19 @@
-﻿@model Wadly_3.Database.Film;
+﻿@using Wadly_3.Database;
+@model List<Film>;
 @{
     ViewData["Title"] = "Films";
 }
 
+<div class="Filmsoppagina">
+    <div class="Allefilms">
+        @foreach (Film film in Model)
+        {
+            <div class="film">
+                <p>@film.Naam</p>
+                <p>@film.Prijs</p>
+                <img src="@film.Img" />
+            </div>
+        }
+    </div>
+</div>
 

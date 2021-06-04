@@ -70,7 +70,7 @@ footer {
 
 
 
-.films {
+.filmshome {
     display: flex;
     flex-direction: row;
     margin-top: 150px;
@@ -79,7 +79,7 @@ footer {
     font-size: 18px;
 }
 
-.film {
+.filmhome {
     margin-left: 30px;
 }
 
@@ -87,7 +87,12 @@ footer {
     width: 300px;
 }
 
-.contactform label{
+.film{
+    background-color:white;
+    padding: 20px;
+}
+
+.contactform label {
     width: 100px;
 }
 
@@ -139,11 +144,6 @@ form .submit{
 
 .nav-links{
     margin-left: 300px;
-}
-
-::selection {
-    background: #8cfa42;
-    color: #fff;
 }
 
 .wrapper {
@@ -342,69 +342,3 @@ form .btn {
         cursor: pointer;
     }
 
-.container {
-    max-width: 800px;
-    height: 600px;
-    background: #fff;
-    margin: 50px auto;
-    box-shadow: 0 0 20px rgba(72,98,85, 0.6);
-    box-sizing: border-box;
-    padding: 40px;
-}
-
-p {
-    text-align: center;
-    letter-spacing: 1px;
-    font-size: 45px;
-    margin-bottom: 20px;
-    color: #486255;
-}
-
-.input,
-.msg .area {
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    margin-bottom: 25px;
-    border: 2px solid #e9eaea;
-    font-size: 14px;
-    border-radius: 5px;
-    outline: none;
-    transform: all 0.5s ease;
-}
-
-.login .input {
-    width: 48%;
-    float: left;
-    margin-right: 4%;
-}
-
-    .login .input:last-child {
-        margin-right: 0;
-    }
-
-.msg .area {
-    height: 200px;
-}
-
-.btn {
-    width: 250px;
-    background: #486255;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    border-radius: 5px;
-    margin: 0 auto;
-    color: #fff;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-
-.input:focus,
-.msg .area:focus {
-    border: 2px solid #486255;
-}
-
-::-webkit-input-placeholder {
-    font-family: 'roboto';
-}

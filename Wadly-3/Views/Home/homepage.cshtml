@@ -4,11 +4,11 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <div class="films">
+<div class="text-home">
+    <div class="filmshome">
         @foreach (Film film in Model.Take(3))
         {
-            <div class="film">
+            <div class="filmhome">
                 <p>@film.Naam</p>
                 <p>@film.Prijs</p>
                 <img src="@film.Img" />

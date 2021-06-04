@@ -103,6 +103,29 @@ namespace SendAndStore.Controllers
             return Film[0];
         }
 
+        private List<Film> GetFilms()
+        {
+            List<Film> films = new List<Film>();
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand($"select * from film", conn);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Film p = new Film
+                        {
+                            Id = Convert.ToInt32(reader["Id"]),
+                            Naam = reader["Naam"].ToString(),
+                        };
+                        films.Add(p);
+                    }
+                }
+            }
+            return films;
+        }
+
         public List<string> GetFilmsinfo()
 
         {
@@ -117,7 +140,7 @@ namespace SendAndStore.Controllers
                 conn.Open();
 
                 // SQL query die we willen uitvoeren
-                MySqlCommand cmd = new MySqlCommand("select * from product", conn);
+                MySqlCommand cmd = new MySqlCommand("select * from film", conn);
 
                 // resultaat van de query lezen
                 using (var reader = cmd.ExecuteReader())
@@ -144,7 +167,12 @@ namespace SendAndStore.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-
+        [Route("Films")]
+        public IActionResult Films()
+        {
+            var films = GetFilms();
+            return View(films);
+        }
 
         [Route("genres")]
         public IActionResult genres()
