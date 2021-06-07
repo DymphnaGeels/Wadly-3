@@ -18,5 +18,7 @@ namespace SendAndStore.Models
         [Required(ErrorMessage = "Gelieve uw beschrijving in te vullen")]
         [Display(Name ="Bericht")]
         public string Description { get; set; }
+        public string Password { get; set; }
+        public string Username { get; set; }
     }
 }

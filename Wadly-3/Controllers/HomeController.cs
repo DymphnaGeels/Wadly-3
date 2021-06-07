@@ -244,13 +244,17 @@ namespace SendAndStore.Controllers
 
         private void SavePerson(Person person)
         {
+            // voordat we alles opslaan in de database gaan we eerst het wachtwoord hashen
+            person.Password = ComputeSha256Hash(person.Password);
+
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO klant(voornaam, achternaam, email, bericht) VALUES(?voornaam, ?achternaam, ?email, ?bericht)", conn);
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO klant(voornaam, achternaam, wachtwoord, email, bericht) VALUES(?voornaam, ?achternaam, ?wachtwoord, ?email, ?bericht)", conn);
 
                 cmd.Parameters.Add("?voornaam", MySqlDbType.Text).Value = person.FirstName;
                 cmd.Parameters.Add("?achternaam", MySqlDbType.Text).Value = person.LastName;
+                cmd.Parameters.Add("?wachtwoord", MySqlDbType.Text).Value = person.Password;
                 cmd.Parameters.Add("?email", MySqlDbType.Text).Value = person.Email;
                 cmd.Parameters.Add("?bericht", MySqlDbType.Text).Value = person.Description;
                 cmd.ExecuteNonQuery();
@@ -272,14 +276,11 @@ namespace SendAndStore.Controllers
                 {
                     HttpContext.Session.SetString("User", username);
                     return Redirect("/");
-                }
-                if (password == "geheim")
-                {
-                    HttpContext.Session.SetString("User", username);
-                    return Redirect("/");
-                }
+                }               
                 return View();
             }
+
+            return View();
 
         }
     }
