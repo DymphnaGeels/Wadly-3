@@ -7,6 +7,7 @@ using Wadly_3.Database;
 using SendAndStore.Models;
 using System.Collections.Generic;
 using System;
+using Microsoft.AspNetCore.Http;
 
 namespace SendAndStore.Controllers
 {
@@ -235,8 +236,13 @@ namespace SendAndStore.Controllers
         }
 
         [Route("account")]
-        public IActionResult account()
+        public IActionResult account(string username, string password)
         {
+            if (password == "geheim")
+            {
+                HttpContext.Session.SetString("User", username);
+                return Redirect("/");
+            }
             return View();
         }
 
