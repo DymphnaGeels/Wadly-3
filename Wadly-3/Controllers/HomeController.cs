@@ -229,7 +229,7 @@ namespace SendAndStore.Controllers
             {
                 // alle benodigde gegevens zijn aanwezig, we kunnen opslaan!
                 SavePerson(person);
-                
+
                 return Redirect("/succes");
             }
             // niet goed? Dan sturen we de gegevens door naar de view zodat we de fouten kunnen tonen
@@ -260,13 +260,27 @@ namespace SendAndStore.Controllers
         [Route("account")]
         public IActionResult account(string username, string password)
         {
-            if (password == "geheim")
-            {
-                HttpContext.Session.SetString("User", username);
-                return Redirect("/");
-            }
-            return View();
-        }
+            // hash voor "wachtwoord"
+            string hash = "dc00c903852bb19eb250aeba05e534a6d211629d77d055033806b783bae09937";
 
+            // is er een wachtwoord ingevoerd?
+            if (!string.IsNullOrWhiteSpace(password))
+            {
+                //Er is iets ingevoerd, nu kunnen we het wachtwoord hashen en vergelijken met de hash "uit de database"
+                string hashVanIngevoerdWachtwoord = ComputeSha256Hash(password);
+                if (hashVanIngevoerdWachtwoord == hash)
+                {
+                    HttpContext.Session.SetString("User", username);
+                    return Redirect("/");
+                }
+                if (password == "geheim")
+                {
+                    HttpContext.Session.SetString("User", username);
+                    return Redirect("/");
+                }
+                return View();
+            }
+
+        }
     }
 }
