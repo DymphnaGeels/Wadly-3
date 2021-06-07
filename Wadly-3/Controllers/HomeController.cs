@@ -31,6 +31,8 @@ namespace SendAndStore.Controllers
             // alle namen ophalen
             var products = GetNames();
 
+            ViewData["user"] = HttpContext.Session.GetString("user");
+
             // stop de namen in de html
             return View(products);
         }
