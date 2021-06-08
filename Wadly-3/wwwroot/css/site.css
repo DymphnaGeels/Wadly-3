@@ -73,23 +73,19 @@ footer {
 .filmshome {
     display: flex;
     flex-direction: row;
-    margin-top: 300px;
-    margin-left: 400px;
+    margin-top: 200px;
+    margin-left: 245px;
     color: white;
     font-size: 18px;
 }
 
-.filmhome {
+
+.filmhomefilm img {
+    width: 300px;
     margin-left: 60px;
 }
 
-.filmhomefilm{
-    width: 300px;
-}
 
-.films img{
-    width: 600px;
-}
 
 .film {
     flex-direction: row;
@@ -107,7 +103,7 @@ footer {
 }
 
 .wrapper {
-    margin-top: 125px;
+    margin-top: 60px;
     margin-left: 550px;
     overflow: hidden;
     max-width: 390px;
@@ -359,14 +355,16 @@ input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid
     max-width: 100%;
 }
 
+
+
 input,
 textarea {
-    padding: 30px;
+    padding: 20px;
     border: 0;
     width: 100%;
     font-size: 1rem;
-    background-color: #2d2d2d;
-    color: white;
+    background-color: white;
+    color: black;
     border-radius: 4px;
 }
 
