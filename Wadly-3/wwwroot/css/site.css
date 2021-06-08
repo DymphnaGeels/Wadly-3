@@ -73,23 +73,27 @@ footer {
 .filmshome {
     display: flex;
     flex-direction: row;
-    margin-top: 150px;
-    margin-left: 300px;
+    margin-top: 300px;
+    margin-left: 400px;
     color: white;
     font-size: 18px;
 }
 
 .filmhome {
-    margin-left: 30px;
+    margin-left: 60px;
 }
 
-.films img{
+.filmhomefilm{
     width: 300px;
 }
 
-.film{
-    background-color:white;
-    padding: 20px;
+.films img{
+    width: 600px;
+}
+
+.film {
+    flex-direction: row;
+    color: white;
 }
 
 

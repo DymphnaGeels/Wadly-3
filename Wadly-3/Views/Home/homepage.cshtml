@@ -8,9 +8,7 @@
     <div class="filmshome">
         @foreach (Film film in Model.Take(3))
         {
-            <div class="filmhome">
-                <p>@film.Naam</p>
-                <p>@film.Prijs</p>
+            <div class="filmhomefilm">
                 <img src="@film.Img" />
             </div>
         }
