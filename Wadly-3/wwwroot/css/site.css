@@ -456,8 +456,8 @@ input[type=checkbox]:checked + label {
     position: relative;
     margin: 0 auto;
     width: var(--btn-w);
-    color: var(--primary);
-    border: .15em solid var(--primary);
+    color: red;
+    border: .15em solid red;
     border-radius: 5em;
     text-transform: uppercase;
     text-align: center;
