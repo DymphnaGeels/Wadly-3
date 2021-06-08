@@ -7,6 +7,7 @@ namespace SendAndStore.Models
         [Required(ErrorMessage = "Gelieve uw voornaam in te vullen")]
         [Display(Name = "voornaam")]
         public string FirstName { get; set; }
+
         [Required(ErrorMessage = "Gelieve uw achternaam in te vullen")]
         [Display(Name = "achternaam")]
         public string LastName { get; set; }

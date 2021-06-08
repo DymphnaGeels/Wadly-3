@@ -242,6 +242,12 @@ namespace SendAndStore.Controllers
             return View();
         }
 
+        [Route("adverteren")]
+        public IActionResult adverteren()
+        {
+            return View();
+        }
+
         private void SavePerson(Person person)
         {
             // voordat we alles opslaan in de database gaan we eerst het wachtwoord hashen
