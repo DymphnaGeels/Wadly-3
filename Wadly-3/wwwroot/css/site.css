@@ -68,6 +68,11 @@ footer {
     text-align: center;
 }
 
+.linkprivacy {
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
 
 
 .filmshome {
@@ -88,8 +93,18 @@ footer {
 
 
 .film {
+    display: flex;
     flex-direction: row;
+    margin-top: 200px;
+    margin-left: 245px;
     color: white;
+    font-size: 18px;
+    background-color: red;
+}
+
+.film img {
+   width: 300px;
+   margin-left: 60px;
 }
 
 
