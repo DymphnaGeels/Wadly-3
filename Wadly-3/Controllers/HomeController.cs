@@ -193,8 +193,11 @@ namespace SendAndStore.Controllers
         [Route("Films")]
         public IActionResult Films()
         {
-            var films = GetFilms();
-            return View(films);
+            // alle namen ophalen
+            var products = GetNames();
+
+            // stop de namen in de html
+            return View(products);
         }
 
         [Route("genres")]
