@@ -138,6 +138,7 @@ namespace SendAndStore.Controllers
                             Naam = reader["Naam"].ToString(),
                             Beschrijving = reader["Beschrijving"].ToString(),
                             Prijs = reader["Prijs"].ToString(),
+                            Img = reader["Img"].ToString(),
                         };
                         Film.Add(p);
                     }
@@ -161,6 +162,9 @@ namespace SendAndStore.Controllers
                         {
                             Id = Convert.ToInt32(reader["Id"]),
                             Naam = reader["Naam"].ToString(),
+                            Beschrijving = reader["Beschrijving"].ToString(),
+                            Prijs = reader["Prijs"].ToString(),
+                            Img = reader["Img"].ToString(),
                         };
                         films.Add(p);
                     }
@@ -232,7 +236,7 @@ namespace SendAndStore.Controllers
         public IActionResult Films()
         {
             // alle namen ophalen
-            var products = GetNames();
+            var products = GetFilms();
 
             // stop de namen in de html
             return View(products);

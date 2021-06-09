@@ -4,24 +4,24 @@
     ViewData["Title"] = "Film";
     List<Voorstelling> voorstellingen = ViewData["voorstellingen"] as List<Voorstelling>;
 }
-<div id="container">
+<div class="container">
 
     <h1>@Model.Naam</h1>
 
     <br><br>
     <p>@Model.Beschrijving</p>
-    <p>@Model.Prijs</p>
+    <p>De prijs is @Model.Prijs euro</p>
 
 
 
 </div>
 
-<div id="Middenstuk">
-    <div id="image">
+<div class="Middenstuk">
+    <div class="image">
         <img src="@Model.Img" alt="@Model.Naam" />
     </div>
 
-    <div id="DATUMTIJD">
+    <div class="DATUMTIJD">
         <p>Bekijk snel één van onze voorstellingen! Ze zijn te zien op:</p>
 
         @if (voorstellingen != null)
@@ -35,7 +35,7 @@
     </div>
 </div>
 
-<div id="Bestelknop">
+<div class="Bestelknop">
     <a href="/Bestelpagina">Bestel hier uw tickets!</a>
 </div>
 
