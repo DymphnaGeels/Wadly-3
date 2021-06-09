@@ -28,8 +28,10 @@
             {
                 foreach (Voorstelling v in voorstellingen)
                 {
-                    <p>@v.Datum.ToString("D")</p>
-
+                    <p>
+                        @v.Datum.ToString("D") 
+                        - Aantal tickets over: @v.Voorraad.ToString("D")
+                    </p>
                 }
             }
         </div>
