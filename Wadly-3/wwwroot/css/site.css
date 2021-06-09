@@ -629,17 +629,20 @@ label {
 .Bestelknop {
     background-color: #ff0000;
     border-radius: 25px;
-    border: none;
-    color: white;
+    border: none;   
     padding: 8px 32px;
-    text-align: center;
-    text-decoration: none;
+    text-align: center;   
     display: inline-block;
     font-size: 30px;
     margin-bottom: 200px;
 }
 
-.bescrhijvingdetail {
-    margin-left: 300px;
-    margin-right: 300px;
-}
+    .Bestelknop a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .bescrhijvingdetail {
+        margin-left: 300px;
+        margin-right: 300px;
+    }
