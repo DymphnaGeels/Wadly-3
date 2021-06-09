@@ -97,6 +97,7 @@ footer {
     flex-direction: row;
     margin-top: 200px;
     margin-left: 245px;
+    margin-right: 345px;
     color: white;
     font-size: 18px;
     background-color: red;
@@ -543,4 +544,80 @@ input[type=checkbox]:checked + label {
     text-decoration: none;
     list-style: none;
     color: white;
+}
+
+.wrapperbetaal {
+    background-color: #f4f2f7;
+    margin: 20px auto;
+    margin-top: 150px;
+    max-width: 400px;
+    padding: 15px 20px;
+    border-radius: 10px
+}
+
+h9 {
+    font-weight: 800;
+    color: #888
+}
+
+label {
+    font-weight: 700;
+    color: #888;
+    font-size: 12px
+}
+
+.card-no {
+    border: none;
+    outline: none;
+    width: 90%;
+    padding-left: 8px
+}
+
+.form-control {
+    outline: none;
+    border: none;
+    box-shadow: none
+}
+
+.card-number {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 8px 2px
+}
+
+
+
+.form-inline label {
+    font-size: 1rem
+}
+
+.focused {
+    border: 2px solid #9ab3f5
+}
+
+#form-footer a {
+    margin: 0
+}
+
+#form-footer p {
+    margin: 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #777
+}
+
+@media(max-width:395px) {
+    .form-inline label {
+        font-size: 12px
+    }
+
+    #form-footer p {
+        font-size: 11px
+    }
+
+    .card-no {
+        width: 85%
+    }
 }

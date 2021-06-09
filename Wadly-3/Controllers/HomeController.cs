@@ -100,6 +100,8 @@ namespace SendAndStore.Controllers
                         {
                             Id = Convert.ToInt32(reader["Id"]),
                             Naam = reader["Naam"].ToString(),
+                            Beschrijving = Convert.ToInt32(reader["Beschikbaarheid"]),
+                            Prijs = reader["Prijs"].ToString(),
                         };
                         Film.Add(p);
                     }
@@ -247,6 +249,18 @@ namespace SendAndStore.Controllers
 
         [Route("adverteren")]
         public IActionResult adverteren()
+        {
+            return View();
+        }
+
+        [Route("betaal")]
+        public IActionResult betaal()
+        {
+            return View();
+        }
+
+        [Route("details")]
+        public IActionResult details()
         {
             return View();
         }

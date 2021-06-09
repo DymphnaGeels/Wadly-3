@@ -11,5 +11,6 @@ namespace Wadly_3.Database
         public string Prijs { get; internal set; }
         public string Img { get; set; }
         public int Id { get; internal set; }
+        public int Beschrijving { get; internal set; }
     }
 }

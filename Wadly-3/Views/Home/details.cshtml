@@ -1,9 +1,40 @@
 ﻿@using Wadly_3.Database;
 @model Wadly_3.Database.Film
 @{
-    ViewData["Title"] = "Films";
+    ViewData["Title"] = "Film";
 }
-<h1>@Model.Naam</h1>
+<div id="container">
 
-<p>@Model.Prijs</p>
+    <h1>@Model.Naam</h1>
+
+    <br><br>
+    <p>@Model.Beschrijving</p>
+    <p>@Model.Prijs</p>
+
+
+
+</div>
+
+<div id="Middenstuk">
+    <div id="image">
+        <img src="@Model.Img" alt="@Model.Naam" />
+    </div>
+
+    <div id="DATUMTIJD">
+        <p>Bekijk snel één van onze voorstellingen! Ze zijn te zien op:</p>
+
+        @*@if (@Model.Datum != null)
+        {
+            foreach (var d in Datum)
+            {
+                <p>@d.datumtijd.ToString("D")</p>
+            }
+        }*@
+    </div>
+</div>
+
+<div id="Bestelknop">
+    <a href="/Bestelpagina">Bestel hier uw tickets!</a>
+</div>
+
 
