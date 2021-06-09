@@ -120,7 +120,7 @@ footer {
 
 .wrapper {
     margin-top: 60px;
-    margin-left: 550px;
+    margin-left: 600px;
     overflow: hidden;
     max-width: 390px;
     background: #fff;
@@ -649,4 +649,16 @@ label {
 
 .Beschrijvingfilms{
     margin-left: 80px;
+}
+
+.succes{
+    color: white;
+}
+
+.field-validation-error {
+    color: red;
+}
+
+.succeslogin{
+    color: white;
 }

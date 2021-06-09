@@ -1,4 +1,5 @@
-﻿@model SendAndStore.Models.Person
+﻿@using Wadly_3.Database;
+@model SendAndStore.Models.Person
 @{
     ViewData["Title"] = "Contact";
 }
@@ -13,39 +14,46 @@
     <form method="post" class="row input-container">
         <div class="col-xs-12">
             <div class="styled-input wide">
-                @Html.LabelFor(m => m.FirstName)
-                @Html.TextBoxFor(m => m.FirstName)
+                <input placeholder="Voornaam" type="text" name="FirstName" />
                 @Html.ValidationMessageFor(m => m.FirstName)
             </div>
         </div>
 
         <div class="col-md-6 col-sm-12">
             <div class="styled-input">
-                @Html.LabelFor(m => m.LastName)
-                @Html.TextBoxFor(m => m.LastName)
+                <input placeholder="Achternaam" type="text" name="LastName" />
                 @Html.ValidationMessageFor(m => m.LastName)
             </div>
         </div>
 
         <div class="col-md-6 col-sm-12">
             <div class="styled-input" style="float:right;">
-                @Html.LabelFor(m => m.Email)
-                @Html.TextBoxFor(m => m.Email)
+                <input placeholder="Email" type="text" name="Email" />
                 @Html.ValidationMessageFor(m => m.Email)
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+            <div class="styled-input" style="float:right;">
+                <input placeholder="Password" type="text" name="Password" />
+                @Html.ValidationMessageFor(m => m.Password)
             </div>
         </div>
 
         <div class="col-xs-12">
             <div class="styled-input wide">
-                @Html.LabelFor(m => m.Description)
-                @Html.TextAreaFor(m => m.Description)
+                <input placeholder="Bericht" type="text" name="Description" />
                 @Html.ValidationMessageFor(m => m.Description)
             </div>
         </div>
-        
+
         <div class="col-xs-12">
             <input class="btn-lrg submit-btn" type="submit" value="verstuur" />
         </div>
     </form>
 </div>
-    <p>Hallo @ViewData["firstname"] @ViewData["lastname"] welkom bij Wadly! Where you watch movies with fun!</p>
+@if (Model != null)
+{
+    <a href="/success"></a>
+    <p>Hallo en welkom @Model.FirstName @Model.LastName </p>
+}

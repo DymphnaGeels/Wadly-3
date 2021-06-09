@@ -1,8 +1,10 @@
-﻿@{
+﻿@using Wadly_3.Database;
+@model SendAndStore.Models.Person
+@{
     ViewData["Title"] = "Account";
 }
 
-<h1 class="display-4">Welkom, @ViewData["user"]</h1>
+<h1 class="display-4">Welkom</h1>
 
 <div class="wrapper">
     <div class="title-text">
@@ -44,13 +46,20 @@
             </form>
             <form action="#" class="signup">
                 <div class="field">
-                    <input type="text" placeholder="Username" required>
+                    <input placeholder="Voornaam" type="text" name="FirstName" required />
+                    @Html.ValidationMessageFor(m => m.FirstName)
                 </div>
                 <div class="field">
-                    <input type="EmailAddress" placeholder="Email Address" required>
+                    <input placeholder="Achternaam" type="text" name="LastName" required />
+                    @Html.ValidationMessageFor(m => m.LastName)
+                </div>
+                <div class="field">
+                    <input placeholder="Email" type="text" name="Email" required />
+                    @Html.ValidationMessageFor(m => m.Email)
                 </div>
                 <div class="field">
                     <input type="password" placeholder="Password" required>
+                    @Html.ValidationMessageFor(m => m.Password)
                 </div>
                 <div class="field btn">
                     <div class="btn-layer">
@@ -62,17 +71,17 @@
     </div>
 </div>
 <script>
-      const loginText = document.querySelector(".title-text .login");
-      const loginForm = document.querySelector("form.login");
-      const loginBtn = document.querySelector("label.login");
-      const signupBtn = document.querySelector("label.signup");
-      const signupLink = document.querySelector("form .signup-link a");
-      signupBtn.onclick = (()=>{
+    const loginText = document.querySelector(".title-text .login");
+    const loginForm = document.querySelector("form.login");
+    const loginBtn = document.querySelector("label.login");
+    const signupBtn = document.querySelector("label.signup");
+    const signupLink = document.querySelector("form .signup-link a");
+    signupBtn.onclick = (() => {
         loginForm.style.marginLeft = "-50%";
         loginText.style.marginLeft = "-50%";
-      });
-      loginBtn.onclick = (()=>{
+    });
+    loginBtn.onclick = (() => {
         loginForm.style.marginLeft = "0%";
         loginText.style.marginLeft = "0%";
-      });     
+    });
 </script>
