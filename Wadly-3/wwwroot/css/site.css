@@ -622,6 +622,19 @@ label {
     }
 }
 
-.detailpagina{
+.detailpagina {
+    color: white;
+}
+
+.Bestelknop {
+    background-color: #ff0000;
+    border-radius: 25px;
+    border: none;
+    color: white;
+    padding: 8px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
     color: white;
 }
