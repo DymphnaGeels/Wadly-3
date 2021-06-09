@@ -45,6 +45,42 @@ namespace SendAndStore.Controllers
             return View();
         }
 
+        [Route("film/{id}")]
+        public IActionResult Details(string id)
+        {
+            var model = GetFilm(id);
+
+            ViewData["voorstellingen"] = GetVoorstellingen(id);
+
+            return View(model);
+        }
+
+        private List<Voorstelling> GetVoorstellingen(string id)
+        {
+            List<Voorstelling> voorstellingen = new List<Voorstelling>();
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand($"select * from voorstelling where film_id = {id}", conn);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Voorstelling p = new Voorstelling
+                        {
+                            Id = Convert.ToInt32(reader["Id"]),
+                            Film_id = Convert.ToInt32(reader["film_id"]),
+                            Voorraad = Convert.ToInt32(reader["Voorraad"]),
+                            Datum = DateTime.Parse(reader["Datum"].ToString()),
+
+                        };
+                        voorstellingen.Add(p);
+                    }
+                }
+            }
+            return voorstellingen;
+        }
+
         public List<Film> GetNames()
         {
 
@@ -100,7 +136,7 @@ namespace SendAndStore.Controllers
                         {
                             Id = Convert.ToInt32(reader["Id"]),
                             Naam = reader["Naam"].ToString(),
-                            Beschrijving = Convert.ToInt32(reader["Beschikbaarheid"]),
+                            Beschrijving = reader["Beschrijving"].ToString(),
                             Prijs = reader["Prijs"].ToString(),
                         };
                         Film.Add(p);
@@ -255,12 +291,6 @@ namespace SendAndStore.Controllers
 
         [Route("betaal")]
         public IActionResult betaal()
-        {
-            return View();
-        }
-
-        [Route("details")]
-        public IActionResult details()
         {
             return View();
         }

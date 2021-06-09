@@ -2,6 +2,7 @@
 @model Wadly_3.Database.Film
 @{
     ViewData["Title"] = "Film";
+    List<Voorstelling> voorstellingen = ViewData["voorstellingen"] as List<Voorstelling>;
 }
 <div id="container">
 
@@ -23,13 +24,14 @@
     <div id="DATUMTIJD">
         <p>Bekijk snel één van onze voorstellingen! Ze zijn te zien op:</p>
 
-        @*@if (@Model.Datum != null)
+        @if (voorstellingen != null)
         {
-            foreach (var d in Datum)
+            foreach (Voorstelling v in voorstellingen)
             {
-                <p>@d.datumtijd.ToString("D")</p>
+                <p>@v.Datum.ToString("D")</p>
+               
             }
-        }*@
+        }
     </div>
 </div>
 
