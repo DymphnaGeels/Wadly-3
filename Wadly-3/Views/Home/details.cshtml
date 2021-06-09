@@ -4,39 +4,40 @@
     ViewData["Title"] = "Film";
     List<Voorstelling> voorstellingen = ViewData["voorstellingen"] as List<Voorstelling>;
 }
-<div class="container">
+<div class="detailpagina">
+    <div class="container">
 
-    <h1>@Model.Naam</h1>
+        <h1>@Model.Naam</h1>
 
-    <br><br>
-    <p>@Model.Beschrijving</p>
-    <p>De prijs is @Model.Prijs euro</p>
-
+        <p>@Model.Beschrijving</p>
+        <p>De prijs is @Model.Prijs euro</p>
 
 
-</div>
 
-<div class="Middenstuk">
-    <div class="image">
-        <img src="@Model.Img" alt="@Model.Naam" />
     </div>
 
-    <div class="DATUMTIJD">
-        <p>Bekijk snel één van onze voorstellingen! Ze zijn te zien op:</p>
+    <div class="Middenstuk">
+        <div class="image">
+            <img src="@Model.Img" alt="@Model.Naam" />
+        </div>
 
-        @if (voorstellingen != null)
-        {
-            foreach (Voorstelling v in voorstellingen)
+        <div class="DATUMTIJD">
+            <p>Bekijk snel één van onze voorstellingen! Ze zijn te zien op:</p>
+
+            @if (voorstellingen != null)
             {
-                <p>@v.Datum.ToString("D")</p>
-               
-            }
-        }
-    </div>
-</div>
+                foreach (Voorstelling v in voorstellingen)
+                {
+                    <p>@v.Datum.ToString("D")</p>
 
-<div class="Bestelknop">
-    <a href="/Bestelpagina">Bestel hier uw tickets!</a>
+                }
+            }
+        </div>
+    </div>
+
+    <div class="Bestelknop">
+        <a href="/Bestelpagina">Bestel hier uw tickets!</a>
+    </div>
 </div>
 
 

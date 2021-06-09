@@ -9,7 +9,7 @@
         @foreach (Film film in Model.Take(3))
         {
             <div class="filmhomefilm">
-                <img src="@film.Img" />
+                <a href="/film/@film.Id"><img src="@film.Img" /></a>
             </div>
         }
     </div>
