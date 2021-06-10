@@ -550,7 +550,9 @@ input[type=checkbox]:checked + label {
 .wrapperbetaal {
     background-color: #f4f2f7;
     margin: 20px auto;
-    margin-top: 150px;
+    margin-top: 70px;
+    float: left;
+    margin-left: 350px;
     max-width: 400px;
     padding: 15px 20px;
     border-radius: 10px
@@ -683,4 +685,19 @@ label {
 
 .gif{
     margin-bottom: 150px;
+}
+
+.betalenbanano {
+    color: white;
+    margin-left: 600px;
+    margin-top: 50px;
+}
+
+.payingbanano{
+    color: white;
+
+}
+
+.bananoqr{
+    margin-top: 100px;
 }
