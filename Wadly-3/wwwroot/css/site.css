@@ -547,6 +547,29 @@ input[type=checkbox]:checked + label {
     color: white;
 }
 
+.linkbanano {
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+
+.linkwatisdit {
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+
+.linkhomestap {
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+
+.hihi{
+    color: white;
+    font-size: 40px;
+}
+
 .wrapperbetaal {
     background-color: #f4f2f7;
     margin: 20px auto;
