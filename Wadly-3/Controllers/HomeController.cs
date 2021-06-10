@@ -288,6 +288,18 @@ namespace SendAndStore.Controllers
             return View();
         }
 
+        [Route("succeslogin")]
+        public IActionResult Succeslogin()
+        {
+            return View();
+        }
+
+        [Route("succesbetaal")]
+        public IActionResult Succesbetaal()
+        {
+            return View();
+        }
+
         [Route("adverteren")]
         public IActionResult adverteren()
         {
@@ -316,11 +328,11 @@ namespace SendAndStore.Controllers
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO klant(voornaam, achternaam, wachtwoord, Email, bericht) VALUES(?voornaam, ?achternaam, ?wachtwoord, ?Email ?bericht)", conn);
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO klant(voornaam, achternaam, wachtwoord, bericht) VALUES(?voornaam, ?achternaam, ?wachtwoord, ?bericht)", conn);
 
                 cmd.Parameters.Add("?voornaam", MySqlDbType.Text).Value = person.FirstName;
                 cmd.Parameters.Add("?achternaam", MySqlDbType.Text).Value = person.LastName;
-                cmd.Parameters.Add("?Email", MySqlDbType.Text).Value = person.Email;
+
                 cmd.Parameters.Add("?wachtwoord", MySqlDbType.Text).Value = person.Password;
                 cmd.Parameters.Add("?bericht", MySqlDbType.Text).Value = person.Description;
                 cmd.ExecuteNonQuery();
@@ -341,7 +353,7 @@ namespace SendAndStore.Controllers
                 if (hashVanIngevoerdWachtwoord == hash)
                 {
                     HttpContext.Session.SetString("User", username);
-                    return Redirect("/");
+                    return Redirect("/succesinlog");
                 }               
                 return View();
             }

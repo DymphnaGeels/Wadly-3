@@ -724,3 +724,28 @@ label {
 .bananoqr{
     margin-top: 100px;
 }
+
+.donebanano {
+    color: white;
+    background-color: #ff0000;
+    border-radius: 25px;
+    border: none;
+    padding: 2px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.donebanano a {
+    color: white;
+    text-decoration: none;
+}
+
+.succesbetaal2{
+    color: white;
+    font-size: 20px;
+}
+
+.gifbetaal{
+    margin-bottom: 70px;
+}
