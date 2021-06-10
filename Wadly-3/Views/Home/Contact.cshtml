@@ -33,12 +33,6 @@
             </div>
         </div>
 
-        <div class="col-md-6 col-sm-12">
-            <div class="styled-input" style="float:right;">
-                <input placeholder="Password" type="text" name="Password" />
-                @Html.ValidationMessageFor(m => m.Password)
-            </div>
-        </div>
 
         <div class="col-xs-12">
             <div class="styled-input wide">
@@ -52,8 +46,4 @@
         </div>
     </form>
 </div>
-@if (Model != null)
-{
-    <a href="/success"></a>
-    <p>Hallo en welkom @Model.FirstName @Model.LastName </p>
-}
+

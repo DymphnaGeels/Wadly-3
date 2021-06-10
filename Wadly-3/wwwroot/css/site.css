@@ -121,6 +121,7 @@ footer {
 .wrapper {
     margin-top: 60px;
     margin-left: 600px;
+    margin-bottom: 200px;
     overflow: hidden;
     max-width: 390px;
     background: #fff;
@@ -649,6 +650,8 @@ label {
 
 .Beschrijvingfilms{
     margin-left: 80px;
+    margin-top: 100px;
+    text-align: center;
 }
 
 .succes{
@@ -661,4 +664,23 @@ label {
 
 .succeslogin{
     color: white;
+}
+
+.filmnaam {
+    margin-top: 15px;
+    margin-left: 50px;
+    font-family: 'Poppins', sans-serif, 'arial';
+    font-weight: 600;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+}
+
+.stappen {
+    color: white;
+    font-size: 30px;
+}
+
+.gif{
+    margin-bottom: 150px;
 }

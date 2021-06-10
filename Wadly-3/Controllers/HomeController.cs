@@ -316,10 +316,11 @@ namespace SendAndStore.Controllers
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO klant(voornaam, achternaam, wachtwoord, bericht) VALUES(?voornaam, ?achternaam, ?wachtwoord, ?bericht)", conn);
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO klant(voornaam, achternaam, wachtwoord, Email, bericht) VALUES(?voornaam, ?achternaam, ?wachtwoord, ?Email ?bericht)", conn);
 
                 cmd.Parameters.Add("?voornaam", MySqlDbType.Text).Value = person.FirstName;
                 cmd.Parameters.Add("?achternaam", MySqlDbType.Text).Value = person.LastName;
+                cmd.Parameters.Add("?Email", MySqlDbType.Text).Value = person.Email;
                 cmd.Parameters.Add("?wachtwoord", MySqlDbType.Text).Value = person.Password;
                 cmd.Parameters.Add("?bericht", MySqlDbType.Text).Value = person.Description;
                 cmd.ExecuteNonQuery();
