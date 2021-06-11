@@ -21,6 +21,8 @@ namespace SendAndStore.Controllers
         //string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110533;Uid=110533;Pwd=inf2021sql";
         string connectionString = "Server=172.16.160.21;Port=3306;Database=110533;Uid=110533;Pwd=inf2021sql";
 
+        public List<Klant> klant { get; private set; }
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -173,6 +175,29 @@ namespace SendAndStore.Controllers
             return films;
         }
 
+        private List<Klant> GetKlant()
+        {
+            List<Klant> films = new List<Klant>();
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand($"select * from klant", conn);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Klant p = new Klant
+                        {
+                            Voornaam = reader["Voornaam"].ToString(),
+                            Achternaam = reader["Achternaam"].ToString(),
+                        };
+                        klant.Add(p);
+                    }
+                }
+            }
+            return klant;
+        }
+
         public List<string> GetFilmsinfo()
 
         {
@@ -291,7 +316,9 @@ namespace SendAndStore.Controllers
         [Route("succeslogin")]
         public IActionResult Succeslogin()
         {
-            return View();
+            var name = HttpContext.Session.GetString("User");
+
+            return View(name);
         }
 
         [Route("succesbetaal")]
@@ -328,11 +355,11 @@ namespace SendAndStore.Controllers
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO klant(voornaam, achternaam, wachtwoord, bericht) VALUES(?voornaam, ?achternaam, ?wachtwoord, ?bericht)", conn);
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO klant(voornaam, achternaam, wachtwoord, email, bericht) VALUES(?voornaam, ?achternaam, ?wachtwoord, ?email, ?bericht)", conn);
 
                 cmd.Parameters.Add("?voornaam", MySqlDbType.Text).Value = person.FirstName;
                 cmd.Parameters.Add("?achternaam", MySqlDbType.Text).Value = person.LastName;
-
+                cmd.Parameters.Add("?email", MySqlDbType.Text).Value = person.Email;
                 cmd.Parameters.Add("?wachtwoord", MySqlDbType.Text).Value = person.Password;
                 cmd.Parameters.Add("?bericht", MySqlDbType.Text).Value = person.Description;
                 cmd.ExecuteNonQuery();
@@ -371,7 +398,7 @@ namespace SendAndStore.Controllers
             {
                 // alle benodigde gegevens zijn aanwezig, we kunnen opslaan!
                 SavePerson(person);
-
+                HttpContext.Session.SetString("User", person.FirstName);
                 return Redirect("/succeslogin");
             }
             // niet goed? Dan sturen we de gegevens door naar de view zodat we de fouten kunnen tonen

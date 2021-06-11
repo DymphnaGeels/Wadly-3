@@ -44,7 +44,7 @@
                     Not a member? <a href="">Signup now</a>
                 </div>
             </form>
-            <form action="#" class="signup">
+            <form method="post" action="#" class="signup">
                 <div class="field">
                     <input placeholder="Voornaam" type="text" name="FirstName" required />
                     @Html.ValidationMessageFor(m => m.FirstName)
@@ -58,7 +58,7 @@
                     @Html.ValidationMessageFor(m => m.Email)
                 </div>
                 <div class="field">
-                    <input type="password" placeholder="Password" required>
+                    <input type="password" placeholder="Password" name="Password" required>
                     @Html.ValidationMessageFor(m => m.Password)
                 </div>
                 <div class="field btn">
