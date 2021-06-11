@@ -316,9 +316,12 @@ namespace SendAndStore.Controllers
         [Route("succeslogin")]
         public IActionResult Succeslogin()
         {
-            var name = HttpContext.Session.GetString("User");
+            var model = new Person
+            {
+                FirstName = HttpContext.Session.GetString("User")
+            };
 
-            return View(name);
+            return View(model);
         }
 
         [Route("succesbetaal")]
@@ -380,7 +383,7 @@ namespace SendAndStore.Controllers
                 if (hashVanIngevoerdWachtwoord == hash)
                 {
                     HttpContext.Session.SetString("User", username);
-                    return Redirect("/succesinlog");
+                    return Redirect("/succeslogin");
                 }               
                 return View();
             }
