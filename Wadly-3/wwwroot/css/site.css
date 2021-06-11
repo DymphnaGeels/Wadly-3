@@ -749,3 +749,15 @@ label {
 .gifbetaal{
     margin-bottom: 70px;
 }
+
+.placeorder {
+    margin-bottom: 500px;
+    text-decoration: none;
+    padding: 20px;
+    border: 0;
+    width: 100%;
+    font-size: 1rem;
+    background-color: white;
+    color: black;
+    border-radius: 4px;
+}
